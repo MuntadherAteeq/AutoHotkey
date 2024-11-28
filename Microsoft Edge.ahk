@@ -59,12 +59,12 @@ F2:: {
         BlockInput(true)
         old_clipboard := A_Clipboard
         A_Clipboard := "" ; Empty the clipboard
-        Send("^l") ; Focus the address bar
+        Send("^l^l^l") ; Focus the address bar
         loop 10 {
             Send("^c") ; Copy the URL
             if ClipWait() == 1 {
                 Send("^w") ; Close the tab
-                Run ("msedge.exe") ; Open a new window
+                Run("msedge.exe", , "Max") ; Open a new window
                 if WinWaitActive("ahk_exe  msedge.exe") {
                     Send("^l") ; Open a new tab
                     Send("^v{Enter}") ; Paste the URL
