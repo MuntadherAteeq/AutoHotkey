@@ -13,12 +13,14 @@ F1:: {
     }
 }
 
+; Open the explorer if I am in the desktop state
 F2:: {
     if WinGetTitle("A") == "Program Manager" {
         Run("explorer.exe")
     }
 }
 
+; Right Task Switching in Edge
 !Right:: {
     if WinGetTitle("A") == "Task Switching" {
         Send ("{Alt Down}{Right}")
@@ -30,7 +32,7 @@ F2:: {
     }
     return
 }
-
+; Left Task Switching in Edge
 !Left:: {
     if WinGetTitle("A") == "Task Switching" {
         Send ("{Alt Down}{Left}")
