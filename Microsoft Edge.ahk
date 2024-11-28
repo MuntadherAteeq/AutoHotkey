@@ -8,17 +8,15 @@ isEdge() {
 }
 ; if I am in the desktop state, I want to make f1 to open the edge browser
 F1:: {
-    if WinGetTitle("A") == "Program Manager" {
+    if WinGetTitle("A") == "Program Manager" || WinGetTitle("A") == "" {
         Run("msedge.exe")
     }
-    return
 }
 
 F2:: {
     if WinGetTitle("A") == "Program Manager" {
         Run("explorer.exe")
     }
-    return
 }
 
 !Right:: {
@@ -68,7 +66,6 @@ F2:: {
                 if WinWaitActive("ahk_exe  msedge.exe") {
                     Send("^l") ; Open a new tab
                     Send("^v{Enter}") ; Paste the URL
-                    Sleep 1000 ; Wait for the page to load
                     A_Clipboard := old_clipboard ; Restore the clipboard
                     BlockInput(false) ; Unfreeze any activity
                 }
